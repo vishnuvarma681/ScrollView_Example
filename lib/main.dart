@@ -21,98 +21,33 @@ class ListViewExample extends StatelessWidget{
 class FirstPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+
+    var ArrNames = ["Aarav", "Vishnu", "Rahul", "Priya", "Ananya", "Rohan", "Sneha", "Karan", "Neha", "Arjun",
+                    "Pooja", "Aditya", "Meera", "Vikram", "Kavya", "Siddharth", "Aisha", "Nikhil", "Riya", "Dev"];
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('ScrollView',
+        title: Text('ListView',
         style: TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.bold,
         ),),
         backgroundColor: Colors.grey,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Container(
-                    margin : EdgeInsets.all(9.0),
-                    height: 150,
-                    width: 100,
-                    color:  Colors.deepOrange,
-                  ),
-                  Container(
-                    margin : EdgeInsets.all(9.0),
-                    height: 150,
-                    width: 100,
-                    color:  Colors.purple,
-                  ),
-                  Container(
-                    margin : EdgeInsets.all(9.0),
-                    height: 150,
-                    width: 100,
-                    color:  Colors.redAccent,
-                  ),
-                  Container(
-                    margin : EdgeInsets.all(9.0),
-                    height: 150,
-                    width: 100,
-                    color:  Colors.blue,
-                  ),
-                  Container(
-                    margin : EdgeInsets.all(9.0),
-                    height: 150,
-                    width: 100,
-                    color:  Colors.yellow,
-                  ),
-                ],
-              ),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: ListView.separated(itemBuilder: (context,index) {
+          return Text(ArrNames[index], style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),);
+        },
+            itemCount: ArrNames.length,
+           separatorBuilder: (BuildContext context, int index) {
+          return Divider(height: 30,thickness: 2);
+          },
             ),
-            Container(
-              margin : EdgeInsets.all(9.0),
-              height: 150,
-              color:  Colors.purple,
-            ),
-            Container(
-              margin : EdgeInsets.all(9.0),
-              height: 150,
-              color:  Colors.redAccent,
-            ),
-            Container(
-              margin : EdgeInsets.all(9.0),
-              height: 150,
-              color:  Colors.blue,
-            ),
-            Container(
-              margin : EdgeInsets.all(9.0),
-              height: 150,
-              color:  Colors.yellow,
-            ),
-            Container(
-              margin : EdgeInsets.all(9.0),
-              height: 150,
-              color:  Colors.green,
-            ),
-            Container(
-              margin : EdgeInsets.all(9.0),
-              height: 150,
-              color:  Colors.grey,
-            ),
-            Container(
-              margin : EdgeInsets.all(9.0),
-              height: 150,
-              color:  Colors.tealAccent,
-            ),
-            Container(
-              margin : EdgeInsets.all(9.0),
-              height: 150,
-              color:  Colors.pinkAccent,
-            ),
-          ],
-        ),
-      ),
+      )
     );
   }
 }
