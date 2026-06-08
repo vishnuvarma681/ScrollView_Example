@@ -44,8 +44,9 @@ class FirstPage extends StatelessWidget{
               backgroundColor: Colors.cyan,
             ),
             title: Text(ArrNames[index],style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25
+              fontFamily: 'newItalianFont',
+              fontWeight: FontWeight.w900,
+              fontSize: 30
             ),),
             subtitle: Text("Number",style: TextStyle(
               fontSize: 20
