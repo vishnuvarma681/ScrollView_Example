@@ -22,7 +22,7 @@ class FirstPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-    var ArrNames = ["Aarav", "Vishnu", "Rahul", "Priya", "Ananya", "Rohan", "Sneha", "Karan", "Neha", "Arjun",
+    var ArrNames = ["Bhagyashree", "Vishnu", "Rahul", "Priya", "Ananya", "Rohan", "Sneha", "Karan", "Neha", "Arjun",
                     "Pooja", "Aditya", "Meera", "Vikram", "Kavya", "Siddharth", "Aisha", "Nikhil", "Riya", "Dev"];
 
     return Scaffold(
@@ -37,13 +37,24 @@ class FirstPage extends StatelessWidget{
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: ListView.separated(itemBuilder: (context,index) {
-          return Text(ArrNames[index], style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),);
+          int n = index+1;
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage('assets/images/contactLogo.png'),
+              backgroundColor: Colors.cyan,
+            ),
+            title: Text(ArrNames[index],style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25
+            ),),
+            subtitle: Text("Number",style: TextStyle(
+              fontSize: 20
+            ),),
+            trailing: Icon(Icons.arrow_forward,color: Colors.grey,size: 20),
+          );
         },
             itemCount: ArrNames.length,
-           separatorBuilder: (BuildContext context, int index) {
+           separatorBuilder: (context, index) {
           return Divider(height: 30,thickness: 2);
           },
             ),
